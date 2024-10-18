@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-d", "bin",
+                "-sourcepath", "src",
+                "src/*.java"
+            ],
+            "group": "build",
+            // "problemMatcher": ["$javac"],
+            "detail": "Compile Java files into the bin directory"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp", "bin",
+                "Main"
+            ],
+            "group": "test",
+            "dependsOrder": "sequence",
+            "detail": "Run the Java program"
+        },
+        {
+            "label": "build-and-run",
+            "dependsOn": ["build", "run"],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}
